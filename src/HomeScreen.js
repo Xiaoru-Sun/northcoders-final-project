@@ -1,113 +1,110 @@
 import React from 'react';
-import UserDetails from './getUsersComponent';
-import { View, Text, StyleSheet, SafeAreaView, Button, Alert, Image, TouchableOpacity } from 'react-native';
-import { useState,useEffect } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
+import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Phoenix from './Phoenix';
 
 const HomeScreen = ({ navigation }) => {
-  const [userId,setUserId] = useState(null)
+  const [userId, setUserId] = useState(null);
 
-  const load = async () =>{
-    try{
-      let id = await AsyncStorage.getItem("userData")
-      setUserId(JSON.parse(id).id)
+  const load = async () => {
+    try {
+      let id = await AsyncStorage.getItem('userData');
+      setUserId(JSON.parse(id).id);
+    } catch (err) {
+      alert(err);
     }
-    catch(err){
-      alert(err)
-    }
-  }
+  };
 
-  useEffect(()=>{
-    load()
-  },[])
+  useEffect(() => {
+    load();
+  }, []);
 
   return (
+    <SafeAreaView style={styles.container}>
+      <View>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Welcome to TrailBlaze </Text>
+          <Text style={styles.subHeaderText}>
+            Here to help you start your fitness journey
+          </Text>
+        </View>
+        <Phoenix />
+        <Text {...userId} />
+        <Text>
+          {'\n'}
+          {'\n'}
+        </Text>
+      </View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Signup')}
+        >
+          <Text style={styles.buttonText}>Sign up 📝</Text>
+        </TouchableOpacity>
 
-<SafeAreaView style={styles.container}>
-  <View>
-<View style={styles.header}>
-  <Text style={styles.headerText}>Welcome to TrailBlaze </Text>
-  <Text style={styles.subHeaderText}>Here to help you start your fitness journey</Text>
-</View>
-<Phoenix />
-<Text {...userId}/>
-<Text>
-{'\n'}
-{'\n'}</Text>
-</View>
-<View style={styles.buttonContainer}>
-  <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Signup')}>
-    <Text style={styles.buttonText}>Sign up 📝</Text>
-  </TouchableOpacity>
-
-  <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-    <Text style={styles.buttonText}>Login 🔓</Text>
-  </TouchableOpacity>
-
-
-  {/* <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('RecentWorkout')}>
-    <Text style={styles.buttonText}>Submit Recent Workout 🏃‍♂️</Text>
-  </TouchableOpacity>
-
-  <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('PersonalChallengeButton')}>
-    <Text style={styles.buttonText}>My Current Challenges 🏃‍♀️</Text>
-  </TouchableOpacity>
-
-  <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NewChal')}>
-    <Text style={styles.buttonText}>Start new challenge 🎯</Text>
-  </TouchableOpacity>
-
-  <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Leaderboard')}>
-    <Text style={styles.buttonText}>Weekly/friends leaderboards 🏆</Text>
-  </TouchableOpacity> */}
-</View>
-</SafeAreaView>
-);  
-}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Login')}
+        >
+          <Text style={styles.buttonText}>Login 🔓</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#002131',
-      padding: 20,
-    },
-    header: {
-      marginBottom: 170,
-      alignItems: 'center',
-    },
-    headerText: {
-      fontSize: 30,
-      fontWeight: 'bold',
-      color: '#fff',
-      marginBottom: 40,
-      marginTop: 30
-    },
-    subHeaderText: {
-      fontSize: 20,
-      color: '#fff',
-    },
-    buttonContainer: {
-      width: '100%',
-      alignItems: 'center',
-    },
-    button: {
-      backgroundColor: '#6495ED',
-      paddingVertical: 15,
-      paddingHorizontal: 30,
-      borderRadius: 10,
-      marginVertical: 10,
-      width: '85%',
-      alignItems: 'center',
-    },
-    buttonText: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      color: '#fff',
-    },
-})
-
-
+  container: {
+    flex: 1,
+    backgroundColor: '#002131',
+    padding: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  header: {
+    marginBottom: 100,
+    alignItems: 'center',
+  },
+  headerText: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 40,
+    marginTop: 30,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+  subHeaderText: {
+    fontSize: 18,
+    color: '#fff',
+  },
+  buttonContainer: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  button: {
+    backgroundColor: '#6495ED',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    marginVertical: 10,
+    width: '85%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+});
 
 export { HomeScreen };
-
