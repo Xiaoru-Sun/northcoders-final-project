@@ -68,12 +68,12 @@ const Dashboard = ({ navigation }) => {
           <Text style={styles.buttonText}>Leaderboard 🏆</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('MyAccountScreen')}
         >
           <Text style={styles.buttonText}>My account 🔐</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </SafeAreaView>
   );
