@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 // import BottomButton from './BottomButton';
 const home = require('./assets/Home.png');
 const heart = require('./assets/fire.png');
+r;
 const plus = require('./assets/Plus.png');
 const calendar = require('./assets/Calender.png');
 const profile = require('./assets/User.png');
