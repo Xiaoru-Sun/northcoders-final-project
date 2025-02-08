@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import BottomButton from './BottomButton'; 
+// import BottomButton from './BottomButton';
 const home = require('./assets/Home.png');
 const heart = require('./assets/fire.png');
+r;
 const plus = require('./assets/Plus.png');
 const calendar = require('./assets/Calender.png');
 const profile = require('./assets/User.png');
@@ -11,10 +12,7 @@ const BottomTab = () => (
   <View style={styles.container}>
     <BottomButton image={home} />
     <BottomButton image={heart} />
-    <BottomButton
-      image={plus}
-      style={styles.plusButton}
-    />
+    <BottomButton image={plus} style={styles.plusButton} />
     <BottomButton image={calendar} />
     <BottomButton image={profile} />
   </View>

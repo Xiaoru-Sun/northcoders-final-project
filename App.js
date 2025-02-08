@@ -7,7 +7,7 @@ import RecentWorkout from './src/RecentWorkout';
 import SignUpForm from './src/Signup';
 import LoginForm from './src/Login';
 import Leaderboard from './src/Leaderboard';
-import Dashboard from './src/Dashboard'
+import Dashboard from './src/Dashboard';
 import PersonalChallengeButton from './src/CurrentChallenges';
 import NewChal from './src/NewChallenge';
 import AgainstSelfScreen from './src/AgainstSelf';
@@ -26,7 +26,7 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Fitness App Home' }}
+          options={{ title: 'Home' }}
           containerStyle={styles.screenContainer}
         />
         <Stack.Screen
@@ -35,58 +35,48 @@ export default function App() {
           options={{ title: 'Recent Workout' }}
           containerStyle={styles.screenContainer}
         />
-           <Stack.Screen
+        <Stack.Screen
           name="Login"
           component={LoginForm}
-          options={{ title: 'LoginForm' }}
+          options={{ title: 'Login' }}
           containerStyle={styles.screenContainer}
         />
-          <Stack.Screen
+        <Stack.Screen
           name="Signup"
           component={SignUpForm}
-          options={{ title: 'SignUpForm' }}
+          options={{ title: 'Sign Up' }}
           containerStyle={styles.screenContainer}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Leaderboard"
           component={Leaderboard}
-          options={{ title: 'Weekly Leaderboard' }}
+          options={{ title: 'Leaderboard' }}
           containerStyle={styles.screenContainer}
         />
-           <Stack.Screen
+        <Stack.Screen
           name="PersonalChallengeButton"
           component={PersonalChallengeButton}
-          options={{ title: 'PersonalChallengeButton' }}
+          options={{ title: 'Personal Challenge Button' }}
           containerStyle={styles.screenContainer}
         />
-           {/* <Stack.Screen
-          name="MyAccountButton"
-          component={MyAccountButton}
-          options={{ title: 'MyAccountButton' }}
-          containerStyle={styles.screenContainer}
-        /> */}
+
         <Stack.Screen
           name="NewChal"
           component={NewChal}
           options={{ title: 'New Challenge' }}
           containerStyle={styles.screenContainer}
         />
-        <Stack.Screen 
-        name="AgainstSelf" 
-        component={AgainstSelfScreen} />
+        <Stack.Screen name="Against Self" component={AgainstSelfScreen} />
 
-        <Stack.Screen 
-        name="AgainstFriend" 
-        component={CreateDuoChallenge} />
+        <Stack.Screen name="Against Friend" component={CreateDuoChallenge} />
 
-        <Stack.Screen 
-        name="CurrentDuoChallenge" 
-        component={DuoChallenge} />
+        <Stack.Screen name="Current Duo Challenge" component={DuoChallenge} />
 
-        <Stack.Screen 
-        name="CreateSoloChallenge" 
-        component={CreateSoloChallenge} />
-                    
+        <Stack.Screen
+          name="Create Solo Challenge"
+          component={CreateSoloChallenge}
+        />
+
         <Stack.Screen
           name="Dashboard"
           component={Dashboard}
@@ -94,21 +84,19 @@ export default function App() {
           containerStyle={styles.screenContainer}
         />
 
-         <Stack.Screen
+        <Stack.Screen
           name="MyAccountScreen"
           component={MyAccountScreen}
-          options={{ title: 'MyAccountScreen' }}
+          options={{ title: 'My Account' }}
           containerStyle={styles.screenContainer}
         />
 
-        <Stack.Screen 
-        name="SoloCurrentChallenge" 
-        component={SoloUserChallenge} />
-        
-        <Stack.Screen 
-        name="ExerciseCards" 
-        component={CardApp} />
+        <Stack.Screen
+          name="SoloCurrentChallenge"
+          component={SoloUserChallenge}
+        />
 
+        <Stack.Screen name="ExerciseCards" component={CardApp} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -120,8 +108,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 100
+    marginBottom: 100,
   },
 });
-
-
